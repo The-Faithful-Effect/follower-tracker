@@ -1,0 +1,35 @@
+date,contestant_name,instagram_handle,season,cast_list,followers,following,post_count,is_private,full_name,biography,error
+2026-08-25,Abbey Luckett Benjamin,abbeybenj,5,new_blood,30000,4898,1921,,Abbey Luckett Benjamin,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Abby Lee,abbylee_.7,5,new_blood,453,43,2,,"Abby Lee, PhD",,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Arisa Thomas,arisathegroomer,5,new_blood,110000,1983,609,,Arisa Thomas| LA Dog Groomer,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Ben McDonnell,mcdonnellben,5,new_blood,51000,1343,323,,ben mcdonnell,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Clyde,astoldbyclyde,5,new_blood,2548,1533,79,,Clyde,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Jay Vinnedge,wellroundedphysician,5,new_blood,7202,369,601,,"Jay Vinnedge, MD",,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Joe Vanella,thejoevanella,5,new_blood,625,525,22,,Joe Vanella,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Katie Fites,katie.fites, 5, new_blood,5512,3751,90,,Katie 🐝🌷🤪🌼🐓🤎,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Kim Daily,iamkimdaily,5,new_blood,30000,1158,487,,Kim Daily,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Kriste Lewis,kr1ste,5,new_blood,1767,542,512,,Kriste Lewis,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Logan Smith,realtywithsmitty,5,new_blood,1357,1846,101,,Logan Smith,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Madeline Kostopulos,madelinekostopulos,5,new_blood,3899,3278,76,,Madeline,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Mark Zgoda,markzgoda,5,new_blood,20000,2071,62,,Mark Zgoda,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Michael Foote,dept_of_redundancy_dept,5,new_blood,,,,,,,"connection_error (after 3 attempts): JSON Query to api/v1/users/web_profile_info/: 401 Unauthorized - ""fail"" status, message ""Please wait a few minutes before you try again."" when accessing https://www.instagram.com/api/v1/users/web_profile_info/?username=dept_of_redundancy_dept | html_fallback failed: [html] could not find a description meta tag on the page — raw HTML saved to /Users/lindsaywhipple/Desktop/The Faithful Effect/follower_tracker/data/.debug_html/dept_of_redundancy_dept_html.html for inspection | selenium_fallback failed: [selenium] could not find a description meta tag on the page — raw HTML saved to /Users/lindsaywhipple/Desktop/The Faithful Effect/follower_tracker/data/.debug_html/dept_of_redundancy_dept_selenium.html for inspection"
+2026-08-25,Morgan Cook,morganevelyncook,5,new_blood,1000000,865,292,,Morgan Cook,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Niyyah Bilal Hayes,niyyahx,5,new_blood,3452,2143,119,,★ NIYYAH BILAL HAYES ★,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Shane Beatty,shanebeatty_,5,new_blood,1651,2095,8,,Shane,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Sherry Kuehl,snarky.in.the.suburbs,5,new_blood,240000,518,1079,,Sherry Kuehl,,used_selenium_fallback (counts may be abbreviated/rounded)
+2026-08-25,Tomica Adams,ladyofthesky,5,new_blood,2691,1950,496,False,Tomica Adams,"A Christian, a mom, an AKA, a daughter, a sister, a friend and a pilot... That's all",
+2026-08-25,Victor Vollbrechthausen,victorvoll,5,new_blood,1973,1322,22,False,Victor Vollbrechthausen,"Up and to the right 📈
+.
+.
+.
+Inquiries: jero@20Xentertainment.com",
+2026-08-25,Wyatt Gillespie,wyatt_gillespie,5,new_blood,5443,1016,32,False,,"The Traitors: New Blood 🩸 
+Faithful or Traitor?
+Find out Sep 17th @ 8pm
+On @NBC & @Peacock
+@thetraitorsus",
+2026-08-25,Xavier Scruggs,xavierscruggs,5,new_blood,49232,3046,3805,False,X!,"⚾️ Former MLB | National MLB Analyst
+🎙️ The Leadoff Spot | MLB Network
+🧠 Modern Player Development & Tech
+👨‍👦 Faith • Family • Growth
+🎥: @showngowithx",

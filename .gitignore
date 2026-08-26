@@ -1,0 +1,6 @@
+data/.cache/
+data/.debug_html/
+data/.sessions/
+__pycache__/
+*.pyc
+.DS_Store

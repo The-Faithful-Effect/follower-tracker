@@ -1,0 +1,42 @@
+name: Daily Follower Tracker
+
+on:
+  schedule:
+    # Runs at 13:00 UTC daily (~9am ET / 8am ET during standard time).
+    # Adjust the cron if you want a different time of day.
+    - cron: "0 13 * * *"
+  workflow_dispatch: {}  # lets you manually trigger a run from the Actions tab
+
+permissions:
+  contents: write  # needed so the workflow can commit the updated CSV back
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install instaloader requests
+          pip install selenium undetected-chromedriver
+        # GitHub's ubuntu-latest runners come with Chrome preinstalled,
+        # so no separate browser setup step is needed for the Selenium
+        # fallback tier.
+
+      - name: Run follower tracker
+        run: python track_followers.py --handles data/handles.csv --out data/follower_history.csv
+
+      - name: Commit updated CSV and broken-accounts list
+        run: |
+          git config user.name "faithful-effect-bot"
+          git config user.email "actions@github.com"
+          git add data/follower_history.csv data/known_broken_accounts.json
+          git diff --cached --quiet || git commit -m "Daily follower snapshot $(date -u +%Y-%m-%d)"
+          git push
