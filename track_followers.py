@@ -37,6 +37,7 @@ Design choices (matching project conventions):
 """
 
 import argparse
+import concurrent.futures
 import csv
 import html
 import json
@@ -252,13 +253,33 @@ def fetch_via_selenium_fallback(handle: str) -> dict:
     options.add_argument("--headless=new")
     options.add_argument("--window-size=1280,1696")
     options.add_argument("--lang=en-US")
+    # CI runners (like GitHub Actions) often have restricted /dev/shm and
+    # sandboxing that can cause headless Chrome to hang or crash silently
+    # without these flags, even though the same code runs fine locally.
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-gpu")
 
     chrome_version = _detect_local_chrome_major_version()
     driver_kwargs = {"options": options}
     if chrome_version:
         driver_kwargs["version_main"] = chrome_version
 
-    driver = uc.Chrome(**driver_kwargs)
+    # uc.Chrome() startup itself has no built-in timeout — on CI runners
+    # this is the more likely hang point (chromedriver waiting indefinitely
+    # to bind to the browser process), not page loading. Force a hard cap
+    # here so a stuck startup fails in ~25s instead of running forever.
+    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+        future = executor.submit(uc.Chrome, **driver_kwargs)
+        try:
+            driver = future.result(timeout=25)
+        except concurrent.futures.TimeoutError:
+            raise RuntimeError(
+                "Chrome driver startup hung for 25s+ — likely a CI environment "
+                "issue (headless Chrome failing to launch). Not retrying "
+                "further within this fallback."
+            )
+
     try:
         driver.set_page_load_timeout(30)
         driver.get(f"https://www.instagram.com/{handle}/?hl=en")
@@ -308,6 +329,11 @@ def build_loader(login_user: str = None) -> instaloader.Instaloader:
         save_metadata=False,
         compress_json=False,
         quiet=True,
+        max_connection_attempts=1,  # let OUR retry/fallback chain handle
+                                     # rate limits, not instaloader's own
+                                     # internal backoff — its default can
+                                     # sleep 10+ minutes per account before
+                                     # ever returning control to this script
     )
 
     if login_user:
